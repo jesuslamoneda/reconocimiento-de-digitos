@@ -1,0 +1,1 @@
+web: gunicorn index:app --timeout 400 --keep-alive 5 --log-level debug

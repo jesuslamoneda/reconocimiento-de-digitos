@@ -1,0 +1,44 @@
+{% extends "layout.html" %} {% block content %}
+
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <h1 class="display-4">Información</h1>
+        <br>
+        <p class="lead">El reconocimiento de dígitos es la parte de la visión por computadora que permite identificar símbolos dígitos en imágenes digitales. Constituye un continuo desarrollo en el procesamiento de imágenes para el que se emplean múltiples técnicas y
+            metodologías.
+        </p>
+
+        <p class="lead">A través de esta web se pueden predecir los dígitos que se encuentran miles de imágenes contenidas en sets de datos. Todo esto se hace mediante distintas técnicas de Machine Learning, usando algoritmos de aprendizaje automático supervisado, ya
+            que el conjunto de entrenamiento con el que entrenamos el modelo, nos proporciona cada imagen digitalizada acompañada de una etiqueta con el dígito del que se trata. Una vez entrenado el modelo, automáticamente predecimos el set de pruebas
+            según distintos patrones que se han encontrado entre los datos en la fase entrenamiento. </p>
+
+
+        <p class="lead">Esta aplicación web implementa la posibilidad de llevar a cabo la ejecución del programa con diferentes algoritmos, pertenecientes todos ellos a la biblioteca de Scikit Learn, muy popular en el aprendizaje automático con Python, que es el lenguaje
+            en el que está programada esta web, junto del framework de Flask.</p>
+
+        <p class="lead">Para este reconocimiento de dígitos, los algoritmos más recomendables son K-Nearest Neighbors y Support Vector Machines, puesto que la forma con la que están diseñados, los hace mejores para este tipo de tareas.</p>
+
+        <p class="lead">Los conjuntos de datos con los que trabajamos en esta web pertenecen al MNIST, que constituye una enorme base de datos que almacena dígitos manuscritos con el objetivo de desarrollar técnicas de reconocimiento de imágenes a través del aprendizaje
+            automático. Estos set de datos contienen miles de imágenes, cada una estando formada por 784 píxeles y de forma cuadrada (resolución de 28x28 = 784 píxeles). Cada uno de los píxeles tiene un valor normalizado entre 0-255 (256 posibles valores
+            = 2^8 = profundidad de 8 bits) y vienen dados en dos tonalidades, o sea, el píxel 0 correspondería a una tonalidad blanca, mientras que el 255 al negro. A continuación podemos ver la representación de una imagen digitalizada.</p>
+
+        <img src="static/imagenes/otros/digitalizada.png" class="img-fluid" alt="Imagen Digitalizada">
+
+        <br><br><br>
+        <h3 class="display-6">Ejecución del programa</h3>
+        <br>
+        <p class="lead">
+            Los sets originales de datos son los denominados “train” y “test” asecas, pero se recomienda la ejecución del programa con los conjuntos de datos reducidos, ya que estos entre ambos contienen 70.000 imágenes y el procesamiento de las mismas supera la
+            memoria que permite esta web (512MB de RAM).
+        </p>
+        <p class="lead">Lo mismo sucede con el PCA, que corresponde a la reducción de las dimensiones de las imágenes dado que los set de datos son muy grandes. Se recomienda establecerlo en un valor bajo, tal como se muestra por defecto. Sin reducción de dimensiones,
+            las imágenes se procesarían en su resolución original de 28x28, 784 componentes, y con el PCA establecemos este número de componentes. Hay que tener en cuenta que mientras más reduzcamos la dimensión, menos datos contendrán nuestras imágenes
+            y menor será la precisión de nuestro modelo entrenado, ya que tendrá menor cantidad de información para encontrar patrones entre los datos para entrenar el modelo, por lo que no podemos reducir excesivamente la dimensión del conjunto de datos.
+        </p>
+
+        <p class="lead">Por último, advertirte que la memoria caché del navegador es muy traicionera! Prueba la aplicación en modo incógnito, ya que así la caché no se guarda. El problema es que nuestros datos en la página son dinámicos, pero los archivos tienen los
+            mismos nombres que los anteriores, entonces el navegador interpreta que se trata del mismo y se muestra el archivo no actualizado. En modo incógnito este problema se solventa en parte, pero por ejemplo el diagrama una vez generado no cambia,
+            se muestra constantemente el mismo, por lo que hay que abrir el navegador de nuevo. </p>
+    </div>
+</div>
+{% endblock %}
